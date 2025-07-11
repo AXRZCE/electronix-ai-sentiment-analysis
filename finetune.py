@@ -13,11 +13,11 @@ import numpy as np
 import torch
 from torch.utils.data import Dataset, DataLoader
 from transformers import (
-    AutoTokenizer, 
+    AutoTokenizer,
     AutoModelForSequenceClassification,
-    AdamW,
     get_linear_schedule_with_warmup
 )
+from torch.optim import AdamW
 from sklearn.metrics import accuracy_score, classification_report
 from tqdm import tqdm
 import pandas as pd
@@ -185,7 +185,8 @@ def main():
     tokenizer = AutoTokenizer.from_pretrained(args.model_name)
     model = AutoModelForSequenceClassification.from_pretrained(
         args.model_name,
-        num_labels=2  # Binary classification
+        num_labels=2,  # Binary classification
+        ignore_mismatched_sizes=True  # Allow reshaping the classifier head
     )
     model.to(device)
 
