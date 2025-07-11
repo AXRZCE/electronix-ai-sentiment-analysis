@@ -1,5 +1,9 @@
 # 🎭 Electronix AI - Sentiment Analysis Microservice
 
+## 🌐 Live Demo
+
+**[🚀 Try it live: https://electronix-ai-sentiment-analysis.vercel.app/](https://electronix-ai-sentiment-analysis.vercel.app/)**
+
 [![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-green.svg)](https://fastapi.tiangolo.com)
 [![React](https://img.shields.io/badge/React-18+-blue.svg)](https://reactjs.org)
