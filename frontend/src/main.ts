@@ -6,7 +6,7 @@ interface PredictionResponse {
 }
 
 class SentimentAnalyzer {
-  private apiUrl = 'http://localhost:8000';
+  private apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
   async predictSentiment(text: string): Promise<PredictionResponse> {
     const response = await fetch(`${this.apiUrl}/predict`, {

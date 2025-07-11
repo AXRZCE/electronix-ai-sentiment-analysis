@@ -23,9 +23,21 @@ logger = logging.getLogger(__name__)
 app = FastAPI(title="Sentiment Analysis API", version="1.0.0")
 
 # Add CORS middleware
+allowed_origins = [
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "https://*.vercel.app",  # Allow all Vercel deployments
+    "https://*.netlify.app",  # Allow Netlify deployments
+]
+
+# Add custom frontend URL from environment if provided
+frontend_url = os.environ.get("FRONTEND_URL")
+if frontend_url:
+    allowed_origins.append(frontend_url)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:5173"],  # Frontend URLs
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -204,4 +216,5 @@ async def predict_sentiment(input_data: TextInput) -> PredictionResponse:
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
