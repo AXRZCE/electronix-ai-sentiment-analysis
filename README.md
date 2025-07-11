@@ -48,10 +48,6 @@ A complete end-to-end microservice for binary sentiment analysis with a modern w
                                     └─────────────────┘
 ```
 
-## 🚀 Quick Deploy
-
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/AXRZCE/electronix-ai-sentiment-analysis)
-
 ## 🚀 Quick Start
 
 ### Using Docker Compose (Recommended)
@@ -309,7 +305,6 @@ docker-compose up --build
 ### Cloud Deployment Options
 
 - **Vercel**: Frontend deployment ready
-- **Railway/Render**: Backend API deployment
 - **Docker Hub**: Container images available
 
 **Note**: Due to model size (~574MB), cloud deployment may require optimization or paid tiers.
