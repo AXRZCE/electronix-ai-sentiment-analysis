@@ -20,9 +20,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy backend application code
 COPY backend/ ./
 
-# Copy model files if they exist
-COPY model/ ./model/ 2>/dev/null || true
-
 # Create necessary directories
 RUN mkdir -p /tmp/transformers_cache /tmp/huggingface
 

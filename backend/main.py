@@ -50,8 +50,9 @@ def load_model():
     global model, tokenizer, is_quantized, model_load_time
 
     start_time = time.time()
-    model_path = "../model"
-    quantized_path = "../model_quantized"
+    # Check for local model directory (for development) or use current directory (for Docker)
+    model_path = "./model" if os.path.exists("./model") else "../model"
+    quantized_path = "./model_quantized" if os.path.exists("./model_quantized") else "../model_quantized"
     use_quantized = os.getenv("QUANTIZED_MODEL", "false").lower() == "true"
 
     try:
