@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: sentiment-analysis-backend
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install --upgrade pip && pip install -r backend/requirements.txt
+    startCommand: python start.py
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.4
+      - key: MODEL_PATH
+        value: ../model
+      - key: ENVIRONMENT
+        value: production
+      - key: FRONTEND_URL
+        value: https://your-frontend-url.vercel.app
+    autoDeploy: false
