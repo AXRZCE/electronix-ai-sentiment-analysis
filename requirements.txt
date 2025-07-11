@@ -4,12 +4,12 @@ uvicorn[standard]==0.24.0
 pydantic==2.5.0
 python-multipart==0.0.6
 
-# ML dependencies - using standard PyTorch for better compatibility
-torch==2.0.1
-transformers==4.35.0
-tokenizers==0.14.1
-numpy==1.24.3
-scikit-learn==1.3.2
+# ML dependencies - minimal versions for Render compatibility
+torch
+transformers==4.30.0
+tokenizers
+numpy
+scikit-learn
 
 # Optional dependencies (commented out for lighter deployment)
 # datasets==2.14.6
