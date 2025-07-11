@@ -86,9 +86,9 @@ def load_model():
             is_quantized = False
 
         else:
-            # Load pre-trained model
-            logger.info("Loading pre-trained model: cardiffnlp/twitter-roberta-base-sentiment-latest")
-            model_name = "cardiffnlp/twitter-roberta-base-sentiment-latest"
+            # Load pre-trained model (using smaller model for memory efficiency)
+            model_name = os.getenv("MODEL_NAME", "nlptown/bert-base-multilingual-uncased-sentiment")
+            logger.info(f"Loading pre-trained model: {model_name}")
             model = AutoModelForSequenceClassification.from_pretrained(model_name)
             tokenizer = AutoTokenizer.from_pretrained(model_name)
             model.to(device)
